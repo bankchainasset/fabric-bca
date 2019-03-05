@@ -1,0 +1,56 @@
+/**
+ * Write your model definitions here
+ */
+
+namespace org.bca.bcanetwork
+
+asset BusAsset identified by assetID {
+    o String assetID
+    o String nameOfAsset
+    o Boolean isStressed
+
+  o String assetList
+  o Double marketValue
+
+  o String termID
+  o String Description
+
+  o String auditDate
+  o String auditReport
+  o Double auditrating
+
+  o String diligenceDate
+  o String diligenceReport
+  o Double diligenceRating
+     --> Trader owner
+}
+
+concept Inventory {
+}
+
+concept Terms {
+}
+
+concept Audit {
+}
+
+concept Diligence {
+}
+
+participant Trader identified by tradeId {
+    o String tradeId
+    o String firstName
+    o String lastName
+  o String houseNumber
+  o String street
+  o String city 
+  o String country
+}
+
+concept Address {
+}
+
+transaction Trade {
+    --> BusAsset busasset
+    --> Trader newOwner
+}
